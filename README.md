@@ -5,14 +5,14 @@ This is a static web application that showcases responsive navigation tavb, diff
 ## Features:
 - Display cards with various details.
 - Reusable components for efficient development.
-- Styling done using Sass for maintainability and scalability.
+- Styling done using Scss for maintainability and scalability.
 
 ## Live Demo:
 [View Live Demo](https://rrl-assesment.netlify.app/)
 
 ## Technologies Used:
 - React.js
-- CSS3 (Sass)
+- CSS3 (Scss)
 - Vite
 - API for data fetching
 
