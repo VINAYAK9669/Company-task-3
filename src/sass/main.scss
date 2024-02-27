@@ -1,0 +1,643 @@
+@import "variable";
+@import "mixin";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fbfcfd;
+  overflow-x: hidden;
+}
+.button-main {
+  min-width: 232px;
+  height: 48px;
+  font-size: $font-md;
+  border-radius: 12px;
+  background-color: $sky-blue;
+  border: none;
+  color: white;
+  margin-bottom: 0.7rem;
+  transition: transform 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+//* ========  Nav Section =====
+.nav__section {
+  @include flex-center(center, center, 2rem);
+  height: 64px;
+  width: 100dvw;
+  background-color: $color-primary;
+  color: $nav-text-color;
+  cursor: pointer;
+  padding: 0 1rem;
+
+  .searchbar {
+    @include flex-center(center, center);
+    background-color: white;
+    padding: 0.4rem;
+    border-radius: 8px;
+    height: 37px;
+    width: 258px;
+  }
+  #icon {
+    color: #212731;
+    font-weight: 900;
+  }
+  input {
+    width: 100%;
+    outline: none;
+    border: 0;
+    padding-left: 0.3rem;
+  }
+  ul {
+    list-style: none;
+    @include flex-center(center, center, 2rem); //.flex-gap-2
+  }
+  ul li:last-child {
+    margin-left: 1rem;
+  }
+  ul li {
+    font-size: $font-sm;
+    font-weight: $weight-xs;
+  }
+  .menu-button {
+    margin-left: auto;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+}
+.wrapper {
+  @include flex-center(start, center, null, null, column);
+}
+.font-w-400 {
+  font-weight: $weight-xs;
+}
+
+//* ========  Header Section =====
+.header {
+  @include flex-center(space-between, null, null, null, column);
+  max-width: 1024px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  #header__name {
+    font-size: $font-xl;
+    font-weight: $weight-xs; // reuse
+    margin-top: 3rem;
+    line-height: 60px;
+  }
+  .sub__header {
+    @include flex-center(space-between, center);
+    padding: 0.5rem 0;
+    border: 1px solid $border-color;
+    border-left: none;
+    border-right: none;
+    box-sizing: border-box;
+    margin-top: 0.3rem;
+
+    .sub__header__left {
+      @include flex-center(space-between, center, 1rem); //.flex-gap-2
+      p {
+        @include flex-center(center, center, 0.2rem);
+        font-size: $font-xs;
+        color: $light-text;
+        font-weight: $weight-xs; // reuse
+        cursor: pointer;
+
+        .icon {
+          font-size: 1.5rem;
+          stroke-width: 1.4;
+        }
+      }
+    }
+
+    .sub__header__right {
+      @include flex-center(space-between, center, 0.2rem);
+
+      font-size: $font-xs;
+      color: $light-text;
+      font-weight: $weight-xs;
+      cursor: pointer;
+      .icon {
+        font-size: 1.5rem;
+        stroke-width: 1.4;
+      }
+    }
+  }
+
+  .categories {
+    @include flex-center(null, center, 1rem, 0.2rem, row, wrap);
+    margin-top: 0.3rem;
+    padding: 0.8rem 0;
+    box-sizing: border-box;
+
+    span {
+      display: inline-block;
+      background-color: #ffffff;
+      padding: 0.8rem 2.6rem 0.8rem 0.5rem;
+      border-radius: 12px;
+      box-sizing: border-box;
+      font-size: $font-xs;
+      border: 1px solid #fbfcfd;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid #1b88f4;
+      }
+    }
+  }
+  .paths {
+    @include flex-center(start, center);
+    .path {
+      @include flex-center(start, center, 0.7rem);
+      font-size: $font-sm;
+      font-weight: $weight-xs;
+      color: $path-color;
+    }
+    #icon {
+      transform: scaleX(2);
+      margin-right: 0.7rem;
+      stroke-width: 0.8px;
+    }
+  }
+}
+
+.card {
+  @include flex-center(space-between, space-between, 3rem, 1rem, row);
+  position: relative;
+  max-width: 1024px;
+  margin-top: 2.5rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  padding: 0 1.5rem 0.2rem 2rem;
+  box-sizing: border-box;
+  border: 2px solid $color-secondary;
+
+  #numbering__element {
+    @include position-abs(20%, 0, null, null, 44px, 44px);
+    @include flex-center(center, center);
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid $border-color;
+  }
+  .tag__container {
+    @include position-abs(0, 0, null, null, 136px, 34px);
+    transform: translateY(-50%);
+    color: white;
+    @include flex-center(space-between, center);
+    .tag {
+      @include flex-center(space-between, center, 0.3rem);
+
+      background-color: $orange;
+      padding: 0.3rem 0.5rem;
+      font-size: $font-md;
+      border-radius: 0px 8px 8px 0px;
+    }
+  }
+  #image_section {
+    @include flex-center(center, center, null, 1rem, column);
+    img {
+      width: 141px;
+    }
+    span {
+      color: $hostname-color;
+      line-height: 20px;
+      font-weight: $weight-xs;
+      font-size: $font-xs;
+    }
+  }
+  #description {
+    @include flex-center(space-between, start, null, 1rem, column);
+    margin: 1.5rem auto;
+    color: $light-text;
+    .discount_price {
+      display: inline-block;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      background-color: $rating-bg-color;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+    h3 {
+      margin: 0.5rem 0 1rem 0;
+      font-size: $font-md;
+    }
+    #main__description {
+      line-height: 24px;
+      #heading {
+        font-size: $font-md;
+        font-weight: $weight-md;
+      }
+    }
+    #highlights {
+      margin-left: 1rem;
+      color: $highlighter-heading-color;
+      font-size: $font-md;
+      line-height: 24px;
+    }
+    .special-points {
+      background-color: $description_highlight-bg;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      @include flex-center(start, start, 0.5rem, 0.5rem, column);
+      border-radius: 12px;
+      #points {
+        @include flex-center(start, center, 0.5rem);
+        #rating {
+          padding: 0.2rem 0.5rem;
+          background-color: white;
+          color: $sky-blue;
+          font-weight: $weight-xs;
+          border-radius: 4px;
+        }
+      }
+    }
+    .show-more {
+      @include flex-center(start, center, 0.3rem);
+      color: $text-blue;
+      text-decoration: none;
+      font-size: $font-md;
+    }
+    #love__section {
+      @include flex-center(start, null, null, 0.3rem, column);
+      margin-top: 1.2rem;
+      p {
+        margin-bottom: 1rem;
+      }
+      .lists {
+        @include flex-center(start, center, 0.8rem);
+        #icon {
+          padding: 0.2rem;
+          height: 24px;
+          width: 24px;
+          background-color: $rating-bg-color;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  #rating {
+    @include flex-center(space-between, center, null, null, column);
+
+    .top {
+      @include flex-center(space-between, center, null, 0.5rem, column);
+      text-align: center;
+      padding: 1rem;
+      border-radius: 0px 0px 12px 12px;
+      background-color: $rating-bg-color;
+
+      .grade {
+        color: $grade-color;
+        width: 135px;
+      }
+      .font-big {
+        font-size: $font-lg;
+      }
+      .font-md {
+        font-size: $font-sm;
+      }
+      .stars {
+        @include flex-center(center, center, null, null, row);
+        width: 11px;
+        height: 11px;
+      }
+    }
+  }
+}
+.suggestion__Section {
+  @include flex-center(space-between, start, null, null, column);
+  margin-top: 3rem;
+  max-width: 1024px;
+  width: 100%;
+  h1 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #2c384a;
+  }
+  .suggestion__Cards {
+    @include flex-center(center, center, 2rem, 1rem, nul);
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.6rem;
+    .top__container {
+      @include flex-center(center, center, 2rem, null, column);
+      img {
+        width: 141px;
+      }
+      .discount {
+        width: 100%;
+        @include flex-center(start, center, 1.5rem);
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        span {
+          text-align: center;
+          padding: 0.2rem 0.4rem;
+          background-color: $highlight-bg;
+          font-size: $font-md;
+          color: $dark-blue-text;
+          border-radius: 8px;
+        }
+      }
+      p {
+        font-size: $font-md;
+        font-weight: $weight-md;
+        color: $hostname-color;
+      }
+    }
+    #description {
+      @include flex-center(start, null, null, 0.2rem, column);
+      margin: 1rem auto;
+    }
+    p {
+      color: $hostname-color;
+      font-size: $font-md;
+      margin-bottom: 0.3rem;
+    }
+    .pricing {
+      @include flex-center(start, center, 0.5rem, 0.2rem, row);
+      #price {
+        font-size: 20px;
+        color: $path-color;
+      }
+      #or_price {
+        font-size: $font-sm;
+        color: $path-color;
+      }
+      #discount_price {
+        font-size: $font-sm;
+        color: #ef4c5d;
+      }
+    }
+
+    .button-main {
+      @include flex-center(center, center, null, 0.2rem, column);
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 0.5rem;
+    }
+  }
+}
+.signup__bar {
+  @include flex-center(space-evenly, center, 2rem);
+  max-width: 1024px;
+  width: 100%;
+  margin-top: 2rem;
+  h1 {
+    font-size: 32px;
+    font-weight: 400;
+    color: $path-color;
+  }
+  .searchbar {
+    height: 100%;
+    @include flex-center(space-between, center);
+    input {
+      height: 100%;
+      border: none;
+      min-width: 350px;
+      outline: none;
+      padding: 1rem;
+    }
+    button {
+      width: 100px;
+      background-color: #1b88f4;
+      height: 100%;
+      color: white;
+      padding: 1rem 0;
+      border: none;
+      border-radius: 0px 12px 12px 0px;
+      font-size: $font-sm;
+    }
+  }
+}
+.footer__container {
+  margin-top: 3rem;
+  width: 100dvw;
+  background-color: $color-primary;
+  .footer {
+    @include flex-center(space-around, start);
+    max-width: 1024px;
+    height: 450px;
+    margin: 3rem auto 0 auto;
+    .container_1,
+    .container_2 {
+      @include flex-center(center, center, null, 1rem, column);
+      h3 {
+        color: #ffffff;
+        font-size: $font-sm;
+        font-weight: 400;
+        letter-spacing: 2px;
+      }
+      ul {
+        list-style: none;
+
+        li {
+          margin-left: 4rem;
+          color: $nav-text-color;
+          font-size: $font-sm;
+          font-weight: $weight-xs;
+          padding: 1rem;
+        }
+      }
+    }
+    .container_3 {
+      height: 100%;
+      @include flex-center(center, center, 1rem);
+      margin-top: -8rem;
+      p {
+        @include flex-center(center, center, 0.5rem);
+        color: white;
+        font-size: $font-sm;
+      }
+    }
+  }
+}
+
+// *========== MainCard Section =========
+
+// *===================== Responsivenss ====
+@media only screen and (max-width: 1080px) {
+  .card {
+    margin-left: 8%;
+    margin-right: 3%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    margin: 0.4rem;
+  }
+  .nav__section {
+    @include flex-center(space-between, center);
+    .menu-button {
+      display: block;
+    }
+    .menu-hidden {
+      display: none;
+    }
+    ul li {
+      border-bottom: 1px solid white;
+      width: 80%;
+      text-align: center;
+      padding: 0.3rem;
+      margin-top: 1rem;
+      transition: all ease-out 0.5s;
+      &:hover {
+        scale: 1.1;
+        transition: all ease-in 0.2s;
+      }
+    }
+    .menu-visible {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      right: 0;
+      background-color: $color-primary;
+      width: 30%;
+      z-index: 111;
+    }
+  }
+  .header {
+    #header__name {
+      font-size: calc(#{$font-xl} * 0.8);
+      margin-top: 2rem;
+    }
+
+    .categories {
+      span {
+        padding: 0.8rem 0.5rem 0.8rem 0.5rem;
+      }
+    }
+
+    .paths {
+      .path {
+        @include flex-center(start, center, 0.2rem);
+        font-size: 12px;
+      }
+      #icon {
+        transform: scaleX(2);
+        margin-right: 0.2rem;
+        stroke-width: 1px;
+        font-size: 10px;
+      }
+    }
+  }
+  .suggestion__Cards {
+    @include flex-center(space-between, start, null, 1.3rem, column);
+  }
+  .signup__bar {
+    @include flex-center(space-evenly, center, 2rem, 2rem, column);
+
+    .searchbar {
+      height: 100%;
+
+      input {
+        min-width: 250px;
+      }
+    }
+  }
+
+  //********************* Changed here
+  .card {
+    @include flex-center(center, space-between, 3rem, 1rem, column);
+
+    #image_section {
+      @include flex-center(center, center, null, 1rem, column);
+      margin-top: 2rem;
+      img {
+        width: 250px;
+      }
+    }
+
+    #rating {
+      @include flex-center(space-between, space-between, null, null, row);
+    }
+  }
+  .footer__container {
+    margin-top: 3rem;
+    width: 100dvw;
+    background-color: $color-primary;
+    .footer {
+      @include flex-center(center, center, null, 3rem, column);
+      max-width: 1024px;
+      height: 750px;
+      margin: 3rem auto 0 auto;
+      padding: 1rem;
+      .container_1,
+      .container_2 {
+        @include flex-center(center, center, null, 1rem, column);
+        h3 {
+          color: #ffffff;
+          font-size: $font-sm;
+          font-weight: 400;
+          letter-spacing: 2px;
+        }
+        ul {
+          list-style: none;
+
+          li {
+            margin-left: 4rem;
+            color: $nav-text-color;
+            font-size: $font-sm;
+            font-weight: $weight-xs;
+            padding: 1rem;
+          }
+        }
+      }
+      .container_3 {
+        height: 100%;
+        @include flex-center(center, center, 1rem);
+        margin-top: 0rem;
+        p {
+          @include flex-center(center, center, 0.5rem);
+          color: white;
+          font-size: $font-sm;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .header {
+    #header__name {
+      margin-top: 1.5rem;
+    }
+    .sub__header {
+      @include flex-center(space-between, center, null, 0.5rem, row);
+
+      .sub__header__left {
+        @include flex-center(space-between, start, null, 0.3rem, column);
+      }
+      .sub__header__right {
+        @include flex-center(start, center);
+      }
+    }
+  }
+  .card {
+    #rating {
+      @include flex-center(space-between, space-between, null, 1.2rem, column);
+    }
+  }
+  .suggestion__Cards {
+    @include flex-center(space-between, start, null, 4rem, column);
+    .top__container {
+      margin-top: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@mixin flex-center(
+  $justify: center,
+  $align: center,
+  $column-gap: null,
+  $row-gap: null,
+  $direction: row,
+  $flex-wrap: null
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  column-gap: $column-gap;
+  row-gap: $row-gap;
+  flex-direction: $direction;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin position-abs(
+  $top: 0,
+  $left: 0,
+  $right: null,
+  $bottom: null,
+  $width: null,
+  $height: null
+) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+  width: $width;
+  height: $height;
+}
