@@ -1,4 +1,4 @@
-# Static Web Application: Cards Display
+# Static Web Application
 
 This is a static web application that showcases responsive navigation tavb, different card details using reusable components, sign up bar and footr. The data for the cards is fetched from an API. The application is designed using Sass for styling.
 
