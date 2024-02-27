@@ -1,8 +1,18 @@
-# React + Vite
+# Static Web Application: Cards Display
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a static web application that showcases responsive navigation tavb, different card details using reusable components, sign up bar and footr. The data for the cards is fetched from an API. The application is designed using Sass for styling.
 
-Currently, two official plugins are available:
+## Features:
+- Display cards with various details.
+- Reusable components for efficient development.
+- Styling done using Sass for maintainability and scalability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo:
+[View Live Demo](https://rrl-assesment.netlify.app/)
+
+## Technologies Used:
+- React.js
+- CSS3 (Sass)
+- Vite
+- API for data fetching
+
